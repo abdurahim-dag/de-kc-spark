@@ -1,0 +1,18 @@
+containers:
+  de-kc-spark:
+    build_directory: .
+    volumes:
+      - local: .
+        container: /app
+        options: cached
+      - type: cache
+        name: poetry-dependencies
+        container: /root/.cache/pypoetry/virtualenvs
+
+tasks:
+  run:
+    description: Run job locally.
+    group: Run
+    run:
+      container: de-kc-spark
+      entrypoint: scripts/run.sh
