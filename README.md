@@ -1,17 +1,21 @@
-# Spark DE learning
+Практическое задание: Spark
+Подготовка
+Создать S3 бакет (Object Storage).
+Скопировать данные желтого такси за 2020 год в созданный s3 бакет (см. Практика №1. по 1 уроку «Основы HADOOP. HDFS»).
+(если выполнялось ДЗ №1 — указанные шаги можно пропустить).
 
-## How to use
+Задание:
+Создать таблицу-витрину для данных за январь 2020 года вида:
 
-### Batect
+Payment type	Date	Average trip cost	Avg trip km cost
+Cash	2020-01-31	999.99	8.53
+Требования к скриптам:
+кол-во файлов — 1
+формат — .csv
+сортировка — Date по убыванию, Payment type по возрастанию
 
-#### Pre-requisites
-We use batect to dockerise the tasks in this exercise. 
-batect is a lightweight wrapper around Docker that helps to ensure tasks run consistently (across linux, mac windows).
-With batect, the only dependencies that need to be installed:
-- Docker
-- Java >= 1.8
+Необходимо предварительно настроить локальный спарк
+https://sparkbyexamples.com/pyspark/how-to-install-and-run-pyspark-on-windows/
 
-#### To run kob locally
-```bash
-./batect run
-```
+Затем submit:
+spark-submit main.py --master yarn --deploy-mode cluster
